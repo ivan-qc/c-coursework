@@ -5,12 +5,13 @@ void sort(int array[], int size);
 
 int main(void)
 {
-    // Array
+    // Unsorted array
     int grades[] = {9, 7, 3, 8, 10, 1, 6, 2, 0};
+    // Calculate number of elements
     int elements = sizeof(grades) / sizeof(grades[0]);
     // Unsorted print
     array_info(grades, elements);
-    // Sorting call
+    // Sort
     sort(grades, elements);
     // Sorted print
     array_info(grades, elements);
@@ -18,7 +19,7 @@ int main(void)
     return 0;
 }
 
-// Prints info
+// Print function
 void array_info(int array[], int size)
 {
     printf("\n");
@@ -31,7 +32,7 @@ void array_info(int array[], int size)
     printf("\n");
 }
 
-// Sorting function (Bubble sort)
+// Bubble sort function
 void sort(int array[], int size)
 {
     int holder;

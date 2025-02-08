@@ -236,26 +236,20 @@ void print_winner(void)
 // Cycle detection using DFS
 bool cycle_check(int start, int end)
 {
-    // Base case: if start equals end, a cycle is detected
     if (start == end)
     {
         return true;
     }
-
-    // Mark the current node as visited
-    visited_node[start] = true;
-
-    // Recursive call to check for cycles in the graph
     for (int i = 0; i < candidate_count; i++)
     {
-        if (locked[start][i] == true) // If there is a lock from start to i
+        if (!locked[start][i])
         {
-            if (cycle_check(i, end)) // Recursive cycle check
-            {
-                return true; // Cycle detected
-            }
+            continue;
+        }
+        if (cycle_check(i, end))
+        {
+            return true;
         }
     }
-    visited_node[start] = false; // Unmark the node before returning
-    return false; // No cycle found
+    return false;
 }
